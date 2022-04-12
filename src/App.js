@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/Navbar";
+import Section from "./Section";
+import { useRef } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [showNav, setShowNav] = useState(false);
+    useEffect(() => {
+        setShowNav(true);
+    }, []);
+
+    const homeSection = useRef(null);
+    const reactSection = useRef(null);
+    const aboutSection = useRef(null);
+
+    return (
+        <>
+            {showNav && (
+                <Navbar
+                    sections={{
+                        home: homeSection.current,
+                        react: reactSection.current,
+                        about: aboutSection.current,
+                    }}
+                />
+            )}
+
+            <Section innerRef={homeSection} />
+            <Section innerRef={reactSection} />
+            <Section innerRef={aboutSection} />
+        </>
+    );
 }
 
 export default App;

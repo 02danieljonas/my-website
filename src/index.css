@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
+:root {
+  font-size: 18px;
+  font-family: 'Open Sans';
+  --text-primary: cyan;
+  --text-secondary: #17ABC0;
+  --bg-primary: #152730;
+  --bg-secondary: #C4C6C0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar {
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100vw;
+  height: 90px;
+  position: fixed;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  z-index: 100;
+}
+
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+.navbar-nav {
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  /* z-index: 100;
+  opacity: 100; */
+}
+
+.navbar-nav div{
+  padding: 30px 50px;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 15px;
+  /* width: 100vw; */
+
+}
+
+.navbar-nav div:hover{
+  background-color: var(--bg-secondary);
+}
+
+.navbar-nav a{
+  color: var(--text-primary);
+  text-decoration: none;
 }
