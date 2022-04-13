@@ -4,16 +4,16 @@ import { useRef } from "react";
 import { useEffect, useState } from "react";
 
 function App() {
-    const [showNav, setShowNav] = useState(false);
+    const [documentLoaded, setDocumentLoaded] = useState(false);
     useEffect(() => {
-        setShowNav(true);
+        setDocumentLoaded(true);
     }, []);
 
     const navSections = useRef([]);
 
     return (
         <>
-            {showNav && <Navbar navLinks={navSections.current} />}
+            {documentLoaded && <Navbar navLinks={navSections.current} />}
 
             <Section innerRef={element => (navSections.current[0] = element)} name={"Home"} />
             <Section innerRef={element => (navSections.current[1] = element)} name={"React"} />
