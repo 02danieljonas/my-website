@@ -1,5 +1,4 @@
 import React from "react";
-import NavbarItems from "./NavbarItems";
 import { useEffect } from "react";
 import useState from "react-usestateref";
 
@@ -21,18 +20,17 @@ const Navbar = ({ navLinks }) => {
     }, []);
 
     return (
-        <nav className="navbar">
-            <div className="navbar-nav">
-                {navLinks.map(element => (
-                    <NavbarItems
-                        key={Math.floor(Math.random() * 1000000)}
-                        onClick={() => element.scrollIntoView()}
-                        active={activeLinkRef.current === element.dataset.name && "true"}
-                    >
-                        {element.dataset.name}
-                    </NavbarItems>
-                ))}
-            </div>
+        <nav className="nav">
+            {navLinks.map(element => (
+                <div
+                    key={Math.floor(Math.random() * 1000000)}
+                    onClick={() => element.scrollIntoView()}
+                    data-active={activeLinkRef.current === element.dataset.name && "true"}
+                    className="navlink"
+                >
+                    <h3>{element.dataset.name}</h3>
+                </div>
+            ))}
         </nav>
     );
 };
