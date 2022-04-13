@@ -7,32 +7,27 @@ const Navbar = ({ navLinks }) => {
     const [, setActiveLink, activeLinkRef] = useState(navLinks[0].dataset.name);
 
     useEffect(() => {
-        const elementInViewport = el => {
-            return (
-                el.offsetTop < window.pageYOffset + window.innerHeight &&
-                el.offsetTop + el.offsetHeight > window.pageYOffset
-            );
-        };
+        const elementInViewport = el =>
+            el.offsetTop < window.pageYOffset + window.innerHeight &&
+            el.offsetTop + el.offsetHeight > window.pageYOffset;
 
-        const scrollListener = window.addEventListener("scroll", () => {
-            navLinks.forEach(element => {
-                elementInViewport(element) && setActiveLink(element.dataset.name);
-            });
-        });
+        const scrollListener = window.addEventListener("scroll", () =>
+            navLinks.forEach(
+                element => elementInViewport(element) && setActiveLink(element.dataset.name)
+            )
+        );
 
-        return () => {
-            window.removeEventListener("scroll", scrollListener);
-        };
+        return () => window.removeEventListener("scroll", scrollListener);
     }, []);
 
     return (
         <nav className="navbar">
             <div className="navbar-nav">
-                {navLinks.map((element, index) => (
+                {navLinks.map(element => (
                     <NavbarItems
-                        key={index}
+                        key={Math.floor(Math.random() * 1000000)}
                         onClick={() => element.scrollIntoView()}
-                        active={activeLinkRef.current === element.dataset.name ? "true" : ""}
+                        active={activeLinkRef.current === element.dataset.name && "true"}
                     >
                         {element.dataset.name}
                     </NavbarItems>
