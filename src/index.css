@@ -28,6 +28,12 @@ html {
 
     background: var(--bg-primary);
     color: var(--text-primary);
+
+    transition: top 0.4s ease-in-out;
+}
+
+.nav.hide {
+    top: -10rem;
 }
 
 .navlink {
