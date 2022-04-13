@@ -15,6 +15,7 @@ function App() {
 
     return (
         <>
+            
             {showNav && (
                 <Navbar
                     sections={{
@@ -24,10 +25,11 @@ function App() {
                     }}
                 />
             )}
+               
 
-            <Section innerRef={homeSection} />
-            <Section innerRef={reactSection} />
-            <Section innerRef={aboutSection} />
+            <Section innerRef={homeSection} name={"Home"} />
+            <Section innerRef={reactSection} name={"React"} />
+            <Section innerRef={aboutSection} name={"About"} />
         </>
     );
 }

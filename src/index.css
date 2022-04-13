@@ -4,10 +4,10 @@
 :root {
   font-size: 18px;
   font-family: 'Open Sans';
-  --text-primary: cyan;
+  --text-primary: rgb(237, 248, 248);
   --text-secondary: #17ABC0;
   --bg-primary: #152730;
-  --bg-secondary: #C4C6C0;
+  --bg-secondary: #00d5fb;
 }
 
 .navbar {
@@ -17,9 +17,14 @@
   width: 100vw;
   height: 90px;
   position: fixed;
+  font-weight: 700;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   z-index: 100;
+}
+
+.navbar [data-active="true"] {
+  background: #00d5fb;
 }
 
 

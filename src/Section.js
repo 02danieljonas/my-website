@@ -1,8 +1,8 @@
 import React from "react";
 
-const Section = ({ id, innerRef }) => {
+const Section = ({ id, innerRef, name }) => {
     return (
-        <section id={id} ref={innerRef}>
+        <section id={id} ref={innerRef} data-name={name}>
             <div style={{ content: "", marginTop: "5rem" }}></div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, id
             odit? Sint tempore voluptate molestias, quas delectus voluptas

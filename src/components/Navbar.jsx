@@ -1,34 +1,32 @@
 import React from "react";
 import NavbarItems from "./NavbarItems";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import useState from "react-usestateref";
 
-const Navbar = (sections) => {
+const Navbar = sections => {
     const { home, react, about } = sections.sections;
-    const [activeLink, setActiveLink] = useState("Home");
+    const [, setActiveLink, activeLinkRef] = useState("Home");
 
     useEffect(() => {
-        function elementInViewport(el) {
-            const top = el.offsetTop;
-            const height = el.offsetHeight;
-
+        const elementInViewport = el => {
             return (
-                top < window.pageYOffset + window.innerHeight &&
-                top + height > window.pageYOffset
+                el.offsetTop < window.pageYOffset + window.innerHeight &&
+                el.offsetTop + el.offsetHeight > window.pageYOffset
             );
-        }
+        };
 
         const scrollListener = window.addEventListener("scroll", () => {
-            [home, react, about].forEach((element, index) => {
-                console.log()
+            [home, react, about].forEach(element => {
+                elementInViewport(element) && setActiveLink(element.dataset.name);
             });
         });
 
         return () => {
-            window.removeEventListener(scrollListener);
+            window.removeEventListener("scroll", scrollListener);
         };
     }, []);
 
-    const fun = (id) => {
+    const fun = id => {
         switch (id) {
             case "Home":
                 home.scrollIntoView();
@@ -49,18 +47,18 @@ const Navbar = (sections) => {
             <div className="navbar-nav">
                 <NavbarItems
                     id="Home"
-                    onClick={(e) => fun(e.target.id)}
-                    activeLink={activeLink[0]}
+                    onClick={e => fun(e.target.id)}
+                    active={activeLinkRef.current === "Home" ? "true" : ""}
                 />
                 <NavbarItems
                     id="React"
-                    onClick={(e) => fun(e.target.id)}
-                    activeLink={activeLink[0]}
+                    onClick={e => fun(e.target.id)}
+                    active={activeLinkRef.current === "React" ? "true" : ""}
                 />
                 <NavbarItems
                     id="About"
-                    onClick={(e) => fun(e.target.id)}
-                    activeLink={activeLink[2]}
+                    onClick={e => fun(e.target.id)}
+                    active={activeLinkRef.current === "About" ? "true" : ""}
                 />
             </div>
         </nav>
