@@ -9,27 +9,15 @@ function App() {
         setShowNav(true);
     }, []);
 
-    const homeSection = useRef(null);
-    const reactSection = useRef(null);
-    const aboutSection = useRef(null);
+    const navSections = useRef([]);
 
     return (
         <>
-            
-            {showNav && (
-                <Navbar
-                    sections={{
-                        home: homeSection.current,
-                        react: reactSection.current,
-                        about: aboutSection.current,
-                    }}
-                />
-            )}
-               
+            {showNav && <Navbar navLinks={navSections.current} />}
 
-            <Section innerRef={homeSection} name={"Home"} />
-            <Section innerRef={reactSection} name={"React"} />
-            <Section innerRef={aboutSection} name={"About"} />
+            <Section innerRef={element => (navSections.current[0] = element)} name={"Home"} />
+            <Section innerRef={element => (navSections.current[1] = element)} name={"React"} />
+            <Section innerRef={element => (navSections.current[2] = element)} name={"About"} />
         </>
     );
 }

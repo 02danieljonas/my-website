@@ -1,9 +1,9 @@
 import React from "react";
 
-const NavbarItems = ({ id, onClick, active }) => {
+const NavbarItems = ({ onClick, active, children }) => {
     return (
-        <div id={id} onClick={onClick} data-active={active}>
-            {id}
+        <div onClick={onClick} data-active={active}>
+            {children}
         </div>
     );
 };
