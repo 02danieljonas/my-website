@@ -43,9 +43,3 @@ const Navbar = ({ navLinks }) => {
 };
 
 export default Navbar;
-
-// console.log("nav bar:",e.item)
-
-//navbar items
-// TODO: everytime a section is created it should auto add it to the Navbar
-//this guy loops through a list passed down from App.js and calls NavbarItems with the info from the list
