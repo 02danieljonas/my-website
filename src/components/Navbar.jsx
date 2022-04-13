@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import useState from "react-usestateref";
 
 const Navbar = ({ navLinks }) => {
-    const [, setActiveLink, activeLinkRef] = useState("Home");
+    const [, setActiveLink, activeLinkRef] = useState(navLinks[0].dataset.name);
 
     useEffect(() => {
         const elementInViewport = el => {
