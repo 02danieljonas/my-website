@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 
 const Navbar = ({ navLinks }) => {
     const [activeLink, setActiveLink] = useState(navLinks[0].dataset.name);
-    const [hide, setHide] = useState(false);
-    const [scrollPos, setScrollPos] = useState(0);
-    const [byMouse, setByMouse] = useState(false); // wheter the navbar is being shown because the user put the mouse at the top of the screen
+    // const [hide, setHide] = useState(false);
+    // const [scrollPos, setScrollPos] = useState(0);
+    // const [byMouse, setByMouse] = useState(false); // wheter the navbar is being shown because the user put the mouse at the top of the screen
 
     useEffect(() => {
         const elementInViewport = (el) =>
@@ -18,36 +18,36 @@ const Navbar = ({ navLinks }) => {
                 element => elementInViewport(element) && setActiveLink(element.dataset.name)
             );
 
-            // hide the navbar when scrolling down
-            setHide(scrollPos < window.scrollY && window.scrollY > 100);
-            setScrollPos(window.scrollY);
+            // // hide the navbar when scrolling down
+            // setHide(scrollPos < window.scrollY && window.scrollY > 100);
+            // setScrollPos(window.scrollY);
         };
 
-        // show navbar when user put the mouse all the way at the top
-        const onMouseMoving = (event) => {
-            if (window.scrollY > 100) {
-                if (event.clientY < 50) {
-                    setHide(false);
-                    setByMouse(true);
-                } else if (byMouse && event.clientY > 50) {
-                    setHide(true);
-                    setByMouse(false);
-                }
-            }
-        };
+        // // show navbar when user put the mouse all the way at the top
+        // const onMouseMoving = (event) => {
+        //     if (window.scrollY > 100) {
+        //         if (event.clientY < 50) {
+        //             setHide(false);
+        //             setByMouse(true);
+        //         } else if (byMouse && event.clientY > 50) {
+        //             setHide(true);
+        //             setByMouse(false);
+        //         }
+        //     }
+        // };
 
         window.addEventListener("scroll", onScroll);
-        window.addEventListener("mousemove", onMouseMoving);
+        // window.addEventListener("mousemove", onMouseMoving);
 
         return () => {
             window.removeEventListener("scroll", onScroll);
-            window.removeEventListener("mousemove", onMouseMoving);
+            // window.removeEventListener("mousemove", onMouseMoving);
         };
     });
 
     return (
         <nav
-            className={`nav ${hide && "hide"}`}
+            className="nav"
         >
             {navLinks.map((element, index) => (
                 <div
