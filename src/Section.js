@@ -2,7 +2,7 @@ import React from "react";
 
 const Section = ({ id, innerRef, name }) => {
     return (
-        <section id={id} ref={innerRef} data-name={name}>
+        <section id={id} ref={innerRef} data-name={name} className="section">
             <h1 className="title">{name}</h1>
             {/* <div style={{ content: "", marginTop: "5rem" }}></div> */}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, id odit? Sint tempore

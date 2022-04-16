@@ -64,6 +64,10 @@ main {
     margin-top: 6rem;
 }
 
+.section {
+    margin: 2rem 1rem 1rem;
+}
+
 .title {
     text-align: center;
     font-family: sans-serif;
