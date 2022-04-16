@@ -15,9 +15,11 @@ function App() {
         <>
             {documentLoaded && <Navbar navLinks={navSections.current} />}
 
-            <Section innerRef={element => (navSections.current[0] = element)} name={"Home"} />
-            <Section innerRef={element => (navSections.current[1] = element)} name={"React"} />
-            <Section innerRef={element => (navSections.current[2] = element)} name={"About"} />
+            <main>
+                <Section innerRef={element => (navSections.current[0] = element)} name={"Home"} />
+                <Section innerRef={element => (navSections.current[1] = element)} name={"React"} />
+                <Section innerRef={element => (navSections.current[2] = element)} name={"About"} />
+            </main>
         </>
     );
 }

@@ -9,6 +9,12 @@
     --bg-secondary: #00d5fb;
 }
 
+*,::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -40,6 +46,7 @@ html {
     padding: 0 2rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    padding: 1.5rem;
 }
 .navlink * {
     transition: transform 0.3s ease-in-out;
@@ -51,4 +58,16 @@ html {
 
 .nav [data-active="true"] {
     background: #01bee0;
+}
+
+main {
+    margin-top: 6rem;
+}
+
+.title {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+
 }

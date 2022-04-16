@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 
 const Navbar = ({ navLinks }) => {
     const [activeLink, setActiveLink] = useState(navLinks[0].dataset.name);
-    
+
     useEffect(() => {
-        const elementInViewport = (el) =>
+        const elementInViewport = el =>
             el.offsetTop < window.pageYOffset + window.innerHeight &&
             el.offsetTop + el.offsetHeight > window.pageYOffset;
 
@@ -24,17 +24,12 @@ const Navbar = ({ navLinks }) => {
     });
 
     return (
-        <nav
-            className="nav"
-        >
+        <nav className="nav">
             {navLinks.map((element, index) => (
                 <div
                     key={index}
                     className="navlink"
-                    onClick={() =>
-                        // if user click home, then go to the top of the page else go to the element
-                        index === 0 ? window.scrollTo(0, 0) : element.scrollIntoView()
-                    }
+                    onClick={() => window.scrollTo({ top: element.offsetTop - 90 })}
                     data-active={activeLink === element.dataset.name && "true"}
                 >
                     <h3>{element.dataset.name}</h3>
